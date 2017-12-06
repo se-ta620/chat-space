@@ -68,8 +68,8 @@
     position: absolute;
     bottom: 0;
     padding: 20px 40px;
-    &__typearea {
-      width: calc(100% - 190px);
+    &__form__text-field {
+      width: calc(100% - 220px);
       height: 50px;
       float: left;
       padding: 0 10px;
@@ -78,31 +78,26 @@
       font-size: 16px;
       color: #434A54;
     }
-    &__picture-button {
+    &__form__picture-field {
       background-color: white;
-      height: 50px;
+      width: 80px;
       float: left;
-      padding: 0 10px;
-      display: inline-block;
-      position: relative;
-      font-size: 30px;
-      i {
-        color: #434A54;
+      padding-top: 10px;
+      padding-bottom: 13px;
+      border: 1px solid;
+      border-color: white;
+      text-align: center;
+      &-label {
+        display: none;
       }
     }
-    &__send-button {
-      line-height: 45px;
+    &__form__button {
+      line-height: 50px;
       background-color: #38AEF0;
       color: #FFFFFF;
       padding-left: 15px;
       border-radius: 5px;
       @include base-button-size;
-      btn {
-        color: white;
-        text-align: center;
-        padding-right: 20px;
-        border-color: #38AEF0;
-      }
     }
   }
 }
