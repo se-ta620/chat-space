@@ -1,0 +1,19 @@
+@mixin base-side-font-style($FontSize) {
+  color: #FFFFFF;
+  font-size: $FontSize;
+  font-weight: bold;
+  text-align: left;
+}
+
+@mixin icon-position {
+  float: right;
+  padding-left: 10px;
+}
+
+@mixin base-button-size {
+  padding: 0 20px;
+  float: right;
+  border-color: #38AEF0;
+  border-style: solid;
+  text-align: center;
+}

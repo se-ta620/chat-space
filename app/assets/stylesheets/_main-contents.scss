@@ -1,0 +1,103 @@
+.contents__main {
+  background-color: #AAAAAA;
+  width: calc(100vw - 300px);
+  height: 100%;
+  font-family: bold;
+  &__top {
+    background-color: #FFFFFF;
+    height: 100px;
+    padding: 0 40px;
+    &__edit-button {
+      height: 40px;
+      margin-top: 28px;
+      color: #38AEF0;
+      line-height: 40px;
+      text-decoration: none;
+      @include base-button-size;
+    }
+    &__group-name {
+      width: 300px;
+      padding-top: 35px;
+      padding-bottom: 15px;
+      float: left;
+      font-size: 20px;
+      color: #333333;
+    }
+    &__participant {
+      width: 300px;
+      margin: 0;
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+.line {
+  height: 1px;
+  border: none;
+  background-color: #eeeeee
+}
+  &__middle {
+    background-color: #AAAAAA;
+    height: 100px;
+    margin-bottom: 40px;
+    &__message-content {
+      padding: 46px 40px 0;
+      &__user-name {
+        float: left;
+        font-size: 16px;
+        font-weight: bold;
+        color: #434A54;
+      }
+      &__post-time {
+        float: left;
+        padding-left: 10px;
+        font-size: 12px;
+        color: #999999;
+      }
+      &__message {
+        padding-top: 10px;
+        clear: both;
+        font-size: 14px;
+        color: #434A54;
+      }
+    }
+  }
+  &__bottom {
+    background-color: #DDDDDD;
+    width: calc(100vw - 380px);
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    padding: 20px 40px;
+    &__form__text-field {
+      width: calc(100% - 220px);
+      height: 50px;
+      float: left;
+      padding: 0 10px;
+      padding-right: 15px;
+      border: none;
+      font-size: 16px;
+      color: #434A54;
+    }
+    &__form__picture-field {
+      background-color: white;
+      width: 80px;
+      float: left;
+      padding-top: 10px;
+      padding-bottom: 13px;
+      border: 1px solid;
+      border-color: white;
+      text-align: center;
+      &-label {
+        display: none;
+      }
+    }
+    &__form__button {
+      line-height: 50px;
+      background-color: #38AEF0;
+      color: #FFFFFF;
+      padding-left: 15px;
+      border-radius: 5px;
+      @include base-button-size;
+    }
+  }
+}

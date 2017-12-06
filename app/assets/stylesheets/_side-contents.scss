@@ -1,0 +1,44 @@
+.contents__side {
+  background-color: #2f3e51;
+  width: 300px;
+  height: 100%;
+  float: left;
+  &__top {
+    background-color: #253141;
+    height: 65px;
+    padding: 0 20px;
+    padding-top: 35px;
+    &__user-name {
+      width: 180px;
+      float: left;
+      @include base-side-font-style(16px);
+    }
+    &__icon-set {
+      width: 80px;
+      float: left;
+      color: #FFFFFF;
+      li {
+        float: right;
+        padding-left: 10px;
+        i {
+          color: white;
+        }
+      }
+    }
+  }
+  &__middle {
+    height: 70px;
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    &__group-name {
+      @include base-side-font-style(15px);
+      padding: 0 20px;
+      padding-bottom: 5px;
+    }
+    &__new-message {
+      @include base-side-font-style(11px);
+      padding: 0 20px;
+    }
+  }
+}
