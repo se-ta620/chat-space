@@ -18,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def move_to_index
-    redirect_to controller: :messages, action: :index
+    redirect_to controller: :groups, action: :index
   end
 end
