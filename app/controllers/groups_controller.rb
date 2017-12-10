@@ -1,5 +1,9 @@
 class GroupsController < ApplicationController
 
+  def index
+    @groups = current_user.groups.order('id desc')
+  end
+
   def new
     @group = Group.new
   end
@@ -13,12 +17,17 @@ class GroupsController < ApplicationController
     end
   end
 
-  def update
-
+  def edit
+    @group = Group.find(params[:id])
   end
 
-  def edit
-
+  def update
+    @group = Group.find(params[:id])
+    if @group.save
+      redirect_to root_path, notice: "グループを編集しました"
+    else
+      render :edit
+    end
   end
 
   def destroy
