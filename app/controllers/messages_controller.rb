@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path
     else
-      redirect_to group_messages_path, notice: "メッセージか画像を入力してください"
+      render :index, notice: "メッセージか画像を入力してください"
     end
   end
 
