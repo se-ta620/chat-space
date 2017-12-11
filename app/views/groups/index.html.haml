@@ -1,7 +1,7 @@
 .contents
   .contents__side
     .contents__side__top
-      %h3.contents__side__top__user-name ユーザーのなまえ
+      %h3.contents__side__top__user-name ユーザーの名前
       %ul.contents__side__top__icon-set
         %li.contents__side__top__icon-list__fonfig
           = link_to edit_user_registration_path do
@@ -9,32 +9,12 @@
         %li.contents__side__top__icon-list__creation-message
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o
+    / = render partial: "grouplist", colleciton: @currentgroups
     - @groups.each do |group|
       .contents__side__middle
-        .contents__side__middle__group-name
-          = group.name
-        .contents__side__middle__new-message さいしんのメッセージ
-  .contents__main
-    .contents__main__top
-      = link_to "https://www.google.co.jp/" do
-        %btn.contents__main__top__edit-button Edit
-      .contents__main__top__group-name グループのなまえ
-      .contents__main__top__participant さんかしゃ
-    .line
-    .contents__main__middle
-      .contents__main__middle__message-content
-        .contents__main__middle__message-content__user-name ユーザーのなまえ1
-        .contents__main__middle__message-content__post-time 投降時間1
-        .contents__main__middle__message-content__message メッセージ内容1
-      .contents__main__middle__message-content
-        .contents__main__middle__message-content__user-name ユーザーのなまえ2
-        .contents__main__middle__message-content__post-time 投降時間2
-        .contents__main__middle__message-content__message メッセージ内容2
-    .contents__main__bottom
-      .contents__main__bottom__form
-      = form_for "" do |f|
-        = f.text_field "", class: "contents__main__bottom__form__text-field", placeholder: "type a message"
-        %label.contents__main__bottom__form__picture-field
-          = f.file_field "", class: "contents__main__bottom__form__picture-field-label"
-          %i.fa.fa-file-picture-o.icon
-        = f.submit value: "Send", class: "contents__main__bottom__form__button"
+        - link_to root_path do
+          .contents__side__middle__group-name
+            = group.name
+          .contents__side__middle__new-message
+
+
