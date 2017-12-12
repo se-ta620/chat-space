@@ -1,20 +1,13 @@
 .contents
   .contents__side
     .contents__side__top
-      %h3.contents__side__top__user-name ユーザーの名前
+      %h3.contents__side__top__user-name
+        = current_user.name
       %ul.contents__side__top__icon-set
         %li.contents__side__top__icon-list__fonfig
           = link_to edit_user_registration_path do
             %i.fa.fa-cog.icon
         %li.contents__side__top__icon-list__creation-message
-          = link_to new_group_path do
+          = link_to new_group_path(@groups) do
             %i.fa.fa-pencil-square-o
-    / = render partial: "grouplist", colleciton: @currentgroups
-    - @groups.each do |group|
-      .contents__side__middle
-        - link_to root_path do
-          .contents__side__middle__group-name
-            = group.name
-          .contents__side__middle__new-message
-
-
+    = render partial: 'share/grouplist', collection: @groups, as: :group

@@ -1,0 +1,12 @@
+.contents__side__middle
+  = link_to group_messages_path(group) do
+    .contents__side__middle__group-name
+      = group.name
+    .contents__side__middle__new-message
+      - if group.messages.present?
+        - if group.messages.last.body.present?
+          = group.messages.last.body
+        - else
+          = "画像が送信されました"
+      - else
+        = "メッセージはありません"

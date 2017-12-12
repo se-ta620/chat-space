@@ -1,0 +1,17 @@
+.contents__main__middle
+  .contents__main__middle__message-content
+    .contents__main__middle__message-content__user-name
+      = message.user.name
+    .contents__main__middle__message-content__post-time
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+    .contents__main__middle__message-content__message
+      = image_tag message.image.to_s
+    .contents__main__middle__message-content__image
+      = message.body
+      - if group.messages.present?
+        - if group.messages.last.body.present?
+          = group.messages.last.body
+        - else
+          = "画像が送信されました"
+      - else
+        = "メッセージはありません"

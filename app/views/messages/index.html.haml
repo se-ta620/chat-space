@@ -1,7 +1,8 @@
 .contents
   .contents__side
     .contents__side__top
-      %h3.contents__side__top__user-name ユーザーのなまえ
+      %h3.contents__side__top__user-name
+        = current_user.name
       %ul.contents__side__top__icon-set
         %li.contents__side__top__icon-list__fonfig
           = link_to edit_user_registration_path do
@@ -9,25 +10,19 @@
         %li.contents__side__top__icon-list__creation-message
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o
-    .contents__side__middle
-      .contents__side__middle__group-name グループのなまえ1
-      .contents__side__middle__new-message さいしんのめっせーじ
+    = render partial: 'share/grouplist', collection: @groups, as: :group
   .contents__main
     .contents__main__top
       = link_to root_path do
         %btn.contents__main__top__edit-button Edit
-      .contents__main__top__group-name グループのなまえ
-      .contents__main__top__participant さんかしゃ
+      .contents__main__top__group-name
+        = @currentgroup.name
+      .contents__main__top__participant
+        Member :
+        - @currentgroup.users.each do |user|
+          = user.name
     .line
-    .contents__main__middle
-      .contents__main__middle__message-content
-        .contents__main__middle__message-content__user-name ユーザーのなまえ1
-        .contents__main__middle__message-content__post-time 投降時間1
-        .contents__main__middle__message-content__message メッセージ内容1
-      .contents__main__middle__message-content
-        .contents__main__middle__message-content__user-name ユーザーのなまえ2
-        .contents__main__middle__message-content__post-time 投降時間2
-        .contents__main__middle__message-content__message メッセージ内容2
+    = render partial: 'share/messagelist', collection: @messages, as: :message
     .contents__main__bottom
       .contents__main__bottom__form
       = form_for [@currentgroup, @message], url: { action: :create } do |f|
