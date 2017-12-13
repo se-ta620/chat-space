@@ -1,19 +1,10 @@
 .contents
   .contents__side
-    .contents__side__top
-      %h3.contents__side__top__user-name
-        = current_user.name
-      %ul.contents__side__top__icon-set
-        %li.contents__side__top__icon-list__fonfig
-          = link_to edit_user_registration_path do
-            %i.fa.fa-cog.icon
-        %li.contents__side__top__icon-list__creation-message
-          = link_to new_group_path do
-            %i.fa.fa-pencil-square-o
+    = render partial: 'share/content', locals: { group: @group }
     = render partial: 'share/grouplist', collection: @groups, as: :group
   .contents__main
     .contents__main__top
-      = link_to root_path do
+      = link_to edit_group_path(@groups) do
         %btn.contents__main__top__edit-button Edit
       .contents__main__top__group-name
         = @currentgroup.name
@@ -22,7 +13,8 @@
         - @currentgroup.users.each do |user|
           = user.name
     .line
-    = render partial: 'share/messagelist', collection: @messages, as: :message
+    .contents__main__middle
+      = render partial: 'share/messagelist', collection: @messages, as: :message
     .contents__main__bottom
       .contents__main__bottom__form
       = form_for [@currentgroup, @message], url: { action: :create } do |f|

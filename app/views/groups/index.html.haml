@@ -1,13 +1,4 @@
 .contents
   .contents__side
-    .contents__side__top
-      %h3.contents__side__top__user-name
-        = current_user.name
-      %ul.contents__side__top__icon-set
-        %li.contents__side__top__icon-list__fonfig
-          = link_to edit_user_registration_path do
-            %i.fa.fa-cog.icon
-        %li.contents__side__top__icon-list__creation-message
-          = link_to new_group_path(@groups) do
-            %i.fa.fa-pencil-square-o
+    = render partial: 'share/content', locals: { group: @group }
     = render partial: 'share/grouplist', collection: @groups, as: :group
