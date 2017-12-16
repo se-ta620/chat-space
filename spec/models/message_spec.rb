@@ -17,16 +17,11 @@ describe "message" do
       message = build(:message, body: "")
       expect(message).to be_valid
     end
-    # メッセージ本文と画像あればおk
-    it "is valid with a message that have body and image" do
-      message = build(:message, image: "")
-      expect(message).to be_valid
-    end
     # メッセージも画像もないとだめ
     it "is invalid without a message that have body and image" do
       message = build(:message, body: "", image: "")
       message.valid?
-      expect(message.errors[:body]).to include("を入力してください")
+      expect(message.errors[:emptymessage]).to include("を入力してください")
     end
     # グループidないとだめ
     it "is invalid without group_id" do
