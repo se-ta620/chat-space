@@ -2,11 +2,7 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :group
 
-  validates :emptymessage, presence: true
-
-  def emptymessage
-    body.presence || image.presence
-  end
+  validates :body, presence: true, unless: :image?
 
   mount_uploader :image, ImageUploader
 
