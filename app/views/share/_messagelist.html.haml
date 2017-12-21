@@ -1,10 +1,13 @@
 .contents__main__middle__message-content
-  .contents__main__middle__message-content__user-name
-    = message.user.name
-  .contents__main__middle__message-content__post-time
-    = message.created_at.strftime("%Y/%m/%d %H:%M")
-  .contents__main__middle__message-content__message
-    = image_tag message.image
-  .contents__main__middle__message-content__image
-    = message.body
+  .contents__main__middle__message-content__over
+    .contents__main__middle__message-content__over__user-name
+      = message.user.name
+    .contents__main__middle__message-content__over__post-time
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .contents__main__middle_message-content__under
+    .contents__main__middle__message-content__under__message
+      = image_tag message.image
+    .contents__main__middle__message-content__under__image
+      = message.body
+
 
