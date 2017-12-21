@@ -27,7 +27,6 @@
       })
       .done(function(data){
         var html = buildHTML(data);
-        console.log(data);
         $('.contents__main__middle').append(html);
         $('.contents__main__bottom__form__text-field').val('');
         $('.contents__main__bottom__form__picture-field-label').val('');
