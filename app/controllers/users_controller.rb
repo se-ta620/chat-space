@@ -2,6 +2,13 @@ class UsersController < ApplicationController
 
    # before_action :move_to_index
 
+  def index
+    @users = User.where('name Like(?)' , "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def edit
     @user = Users.find(params[:id]) if user.id == current_user.id
   end
