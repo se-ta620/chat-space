@@ -4,7 +4,7 @@
     = render partial: 'share/grouplist', collection: @groups, as: :group
   .contents__main
     .contents__main__top
-      = link_to edit_group_path(@groups) do
+      = link_to edit_group_path(@currentgroup) do
         %btn.contents__main__top__edit-button Edit
       .contents__main__top__group-name
         = @currentgroup.name
