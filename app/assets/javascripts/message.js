@@ -38,3 +38,28 @@
       return false;
     });
   });
+
+  // メッセージ自動更新機能
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+  $.ajax({
+    url: location.href,
+    type: "GET",
+    dataType: 'json'
+  })
+  .done(function(data) {
+    var id = $('.contents__main__middle__message-content').data('messageId');
+    var insertHTML = '';
+    data.messages.forEach(function(message) {
+      if (message.id > id ) {
+        insertHTML += buildHTML(message);
+      }
+    });
+    $('.contents__main__middle__message-content').prepend(insertHTML);
+  })
+  .fail(function(data) {
+    alert('自動更新に失敗しました');
+  });
+} else {
+  clearInterval(interval);
+ }} , 5 * 1000 );
