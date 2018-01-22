@@ -3,8 +3,12 @@ class MessagesController < ApplicationController
   def index
     @groups = current_user.groups
     @currentgroup = Group.find(params[:group_id])
-    @messages = @currentgroup.messages
+    @messages = @currentgroup.messages.includes(:user)
+    respond_to do |format|
+      format.json
+      format.html
     @message = current_user.messages.new
+    end
   end
 
   def create
